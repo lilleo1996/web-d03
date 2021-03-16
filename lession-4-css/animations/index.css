@@ -1,0 +1,102 @@
+.content {
+  height: 95vh;
+  background-image: url('../images/hero.jpg');
+  background-size: cover;
+  background-position: top;
+  position: relative;
+}
+
+.content__logo-box {
+  position: absolute;
+  top: 4rem;
+  left: 4rem;
+  animation: moveInBottom 1s ease-out;
+}
+
+.content__logo {
+  height: 3.5rem;
+}
+
+/* position center use position and transform */
+.content__text-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.heading {
+  color: white;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+  padding-bottom: 6rem;
+}
+
+.heading--main { 
+  display: block;
+  font-size: 6rem;
+  font-weight: 400;
+  letter-spacing: 3.5rem;
+
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+
+  /* animation-delay: 3s;    
+  animation-iteration-count: 3; */
+}
+
+.heading--sub {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1.75rem;
+  animation: moveInRight 1s ease-out;
+}
+
+@keyframes moveInLeft {
+  0% {
+      opacity: 0;
+      transform: translateX(-10rem);
+  }
+
+  80% { 
+      transform: translateX(1rem);
+  
+  }
+
+  100% {
+      opacity: 1;
+      transform: translate(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+      opacity: 0;
+      transform: translateX(100px);
+  }
+
+  80% { 
+      transform: translateX(-10px);
+  
+  }
+
+  100% {
+      opacity: 1;
+      transform: translate(0);
+  }
+}
+
+@keyframes moveInBottom {
+  0% {
+      opacity: 0;
+      transform: translateY(30px);
+  }
+
+  100% {
+      opacity: 1;
+      transform: translate(0);
+  }
+}

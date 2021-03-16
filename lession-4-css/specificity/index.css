@@ -1,0 +1,22 @@
+body {
+  padding: 50px;
+}
+
+.button {
+  padding: 4px;
+  font-size: 24px;
+  color: black;
+  background-color: blue;
+}
+a.button { 
+  background-color: yellow;
+}
+
+
+#nav div.pull-right a.button {
+  background-color: green !important;
+} 
+
+#nav a.button {
+  background-color: violet !important;
+} 
