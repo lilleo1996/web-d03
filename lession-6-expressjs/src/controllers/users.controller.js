@@ -1,4 +1,4 @@
-const users = [
+let users = [
   {
     id: '1',
     name: 'Hieu',
@@ -62,3 +62,45 @@ module.exports.createUser = (req, res) => {
     users
   })
 }
+
+module.exports.updateUser = (req,res) => {
+  const {id} = req.params
+  const {name} = req.body 
+
+  const user = users.find(user => user.id === id)
+
+  if(user){
+    let index = users.indexOf(user)
+    users[index] = {
+      id,
+      name
+    }
+          return res.status(200).json({
+            isSuccess : true,
+            message: 'update id user',
+            users,
+          })
+  }
+
+  return res.status(400).json({
+    isSuccess:false,
+    message: 'user did not exits'
+  })
+}
+
+module.exports.deleteUser = (req,res)=>{
+  const {id} = req.params;
+  if(!id){
+    return res.status(400).json({
+      isSuccess: false,
+      message : 'not found this id'
+    })
+  }
+  users = users.filter((user)=>user.id !== id)
+  return res.status(200).json({
+    isSuccess :true,
+    message : `the id ${id} was deleted from the database`,
+    users
+  })
+}
+

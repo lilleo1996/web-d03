@@ -8,6 +8,11 @@ const port = 8080
 
 app.use(bodyParser.json())
 
+app.use('/users', (req, res, next) => {
+  console.log('The request recieved at: ', new Date())
+  next()
+})
+
 app.use('/users', usersRoute)
 
 app.get('/', (req, res) => {
