@@ -69,35 +69,36 @@ module.exports.updateUser = (req,res) => {
 
   const user = users.find(user => user.id === id)
 
-  if(user){
-    let index = users.indexOf(user)
-    users[index] = {
-      id,
-      name
-    }
-          return res.status(200).json({
-            isSuccess : true,
-            message: 'update id user',
-            users,
-          })
+  if (!user){
+    return res.status(400).json({
+      isSuccess:false,
+      message: 'not found user'
+    })
   }
 
-  return res.status(400).json({
-    isSuccess:false,
-    message: 'user did not exits'
+  let index = users.indexOf(user)
+  users[index] = { id, name }
+  
+  res.status(200).json({
+  isSuccess : true,
+  message: 'successfully updated user',
+  users,
   })
 }
 
 module.exports.deleteUser = (req,res)=>{
-  const {id} = req.params;
-  if(!id){
+  const {id} = req.params
+
+  if (!id) {
     return res.status(400).json({
       isSuccess: false,
-      message : 'not found this id'
+      message : 'not found user'
     })
   }
+
   users = users.filter((user)=>user.id !== id)
-  return res.status(200).json({
+  
+  res.status(200).json({
     isSuccess :true,
     message : `the id ${id} was deleted from the database`,
     users
