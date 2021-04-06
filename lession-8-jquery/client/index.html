@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery</title>
+  <script src="jquery-3.6.0.min.js"></script>
+
+  <script>
+    $(document).ready(function() {
+      // GET
+      $('#show-text-btn').click(function() {
+        alert($('#text').text())
+      })
+
+      $('#show-html-btn').click(function() {
+        alert($('#text').html())
+      })
+
+      $('#show-value-btn').click(function() {
+        alert($('#name-input').val())
+      })
+
+      $('#show-attribute-btn').click(function() {
+        alert($('#text').attr('style'))
+      })
+
+      // SET
+      $('#set-text-btn').click(function() {
+        $('#text').text('Hieu kute')
+      })
+
+      $('#set-html-btn').click(function() {
+        $('#text').html('<h1 style="color: red">Hieu kute</h1>')
+      })
+
+      $('#set-value-btn').click(function() {
+        $('#name-input').val('Hieu kute')
+      })
+
+      $('#set-attribute-btn').click(function() {
+        $('#text').attr('style', 'background-color: red')
+      })
+
+      // ADD
+      $('#append-btn').click(function() {
+        $('#text').append('<b>append</>')
+      })
+
+      $('#prepend-btn').click(function() {
+        $('#text').prepend('<b>prepend</>')
+      })
+
+      $('#before-btn').click(function() {
+        $('#text').before('<b>before</>')
+      })
+
+      $('#after-btn').click(function() {
+        $('#text').after('<b>after</>')
+      })
+
+      // REMOVE
+      $('#remove-btn').click(function() {
+        $('#text').remove()
+      })
+
+      $('#empty-btn').click(function() {
+        $('#text').empty()
+      })
+
+      // CLASS
+      $('#add-class-btn').click(function() {
+        $('#text').addClass("blue bold underline");
+      })
+
+      $('#remove-class-btn').click(function() {
+        $('#text').removeClass("bold")
+      })
+
+      // CSS
+      $('#get-css-btn').click(function() {
+        alert($('#text').css("background-color"))
+      })
+
+      $('#set-css-btn').click(function() {
+        $('#text').css("background-color", "chartreuse")
+      })
+
+      // LOAD 
+      // Note
+      $('#load-btn').click(function() {
+        $('#text').load("http://localhost:8080/users/")
+      })
+
+      $('#get-btn').click(function() {
+        $.get("http://localhost:8080/users/", 
+        function(data, status) {
+          alert("Data: " + data + "\nStatus: " + status)
+        })
+      })
+
+      $('#post-btn').click(function() {
+        $.post("http://localhost:8080/users/",
+        {id: 4, name: 'Tuuu'},
+        function(data, status) { 
+          alert("Data: " + data + "\nStatus: " + status)
+        })
+      })
+    })
+  </script>
+</head>
+<body>
+  <p id="text" style="background-color: aqua; padding: 8px;">
+    This is TEXT
+    <span>SPAN nha</span>
+  </p>
+
+  <label for="username">Username:</label><br>
+  <input 
+    type="text" 
+    id="name-input" 
+    name="username" 
+    value="Input text..."
+    style="margin-bottom: 3em"
+  ><br>
+
+  <h3 id="get-heading" style="margin-block-end: 0.33em">GET</h3>
+  <button id="show-text-btn">Show Text</button> 
+  <button id="show-html-btn">Show HTML</button>
+  <button id="show-value-btn">Show Value</button> 
+  <button id="show-attribute-btn">Show Attr</button> <br>
+
+  <h3 id="set-heading" style="margin-block-end: 0.33em">SET</h3>
+  <button id="set-text-btn">Set Text</button>
+  <button id="set-html-btn">Set HTML</button>
+  <button id="set-value-btn">Set value</button>
+  <button id="set-attribute-btn">Set attr</button> <br>
+
+  <h3 id="add-heading" style="margin-block-end: 0.33em">ADD</h3>
+  <button id="append-btn">Append</button>
+  <button id="prepend-btn">Prepend</button> 
+  <button id="before-btn">Before</button>
+  <button id="after-btn">After</button> <br>
+
+  <h3 id="remove-heading" style="margin-block-end: 0.33em">REMOVE</h3>
+  <button id="remove-btn">Remove</button>
+  <button id="empty-btn">Empty</button> <br>
+
+  <h3 id="class-heading" style="margin-block-end: 0.33em">CLASS</h3>
+  <button id="add-class-btn">Add class</button>
+  <button id="remove-class-btn">Remove class</button> <br>
+
+  <h3 id="css-heading" style="margin-block-end: 0.33em">CSS</h3>
+  <button id="get-css-btn">Get CSS</button>
+  <button id="set-css-btn">Set CSS</button> <br>
+
+  <h3 id="ajax-heading" style="margin-block-end: 0.33em">AJAX</h3>
+  <button id="load-btn">Load Users</button>
+  <button id="get-btn">Get Users</button>
+  <button id="post-btn">Post User</button> <br>
+</body>
+</html>
