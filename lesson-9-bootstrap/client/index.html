@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap</title>
+  
+  <script src="jquery-3.6.0.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+
+  <!-- This is jQeury script -->
+  <script>
+    $(document).ready(function() {
+      // LOAD 
+      // Note
+      $('#load-btn').click(function() {
+        $('#text').load("http://localhost:8080/users/")
+      })
+
+      $('#get-btn').click(function() {
+        $.get("http://localhost:8080/users/", 
+        function(data, status) {
+          alert("Data: " + data + "\nStatus: " + status)
+        })
+      })
+
+      $('#post-btn').click(function() {
+        $.post("http://localhost:8080/users/",
+        {id: 4, name: 'Tuuu'},
+        function(data, status) { 
+          alert("Data: " + data + "\nStatus: " + status)
+        })
+      })
+    })
+  </script>
+</head>
+<body>   
+  <div class="container">
+    <div class="row" style="border: 2px solid red;">
+      <div class="col-6 " style="background-color: aquamarine; border: 1px solid grey;">
+        Box 1
+      </div>
+      <div class="col-6" style="background-color: aquamarine; border: 1px solid grey;">
+        Box 2
+      </div>
+      <div class="col-6" style="background-color: aquamarine; border: 1px solid grey;">
+        Box 3
+      </div>
+      <div class="col-6 " style="background-color: aquamarine; border: 1px solid grey;">
+        Box 4
+      </div>
+      <div class="col-6" style="background-color: aquamarine; border: 1px solid grey;">
+        Box 5
+      </div>
+      <div class="col-6" style="background-color: aquamarine; border: 1px solid grey;">
+        Box 6
+      </div>
+      <div class="col-6" style="background-color: aquamarine; border: 1px solid grey;">
+        Box 7
+      </div>
+      <div class="col-6" style="background-color: aquamarine; border: 1px solid grey;">
+        Box 8
+      </div>
+    </div>
+</body>
+</html>
