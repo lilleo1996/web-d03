@@ -8,6 +8,10 @@
   cursor: pointer;
 }
 
+.post--clicked {
+  background-color: gray;
+}
+
 .post__author {
   font-weight: 700;
 }
